@@ -10,17 +10,17 @@ import agent2 from "@/assets/agent-2.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Verschluss — Curated Architectural Real Estate" },
+      { title: "Verschluss — Architectural Real Estate Advisory" },
       {
         name: "description",
         content:
-          "Verschluss connects visionary homeowners with architectural masterpieces across Berlin, Zurich and Copenhagen. Curated spaces for modern living.",
+          "Curated residences with verified design pedigree. Private acquisitions, architectural vetting, and editorial-grade presentation across Northern Europe.",
       },
-      { property: "og:title", content: "Verschluss — Curated Architectural Real Estate" },
+      { property: "og:title", content: "Verschluss — Architectural Real Estate Advisory" },
       {
         property: "og:description",
         content:
-          "Curated spaces for modern living. A specialist agency for the architecturally inclined.",
+          "Quiet architectures. Curated residences. A specialist agency for the architecturally inclined.",
       },
     ],
   }),
@@ -28,7 +28,6 @@ export const Route = createFileRoute("/")({
 });
 
 type Listing = {
-  n: string;
   name: string;
   location: string;
   price: string;
@@ -40,30 +39,27 @@ type Listing = {
 
 const listings: Listing[] = [
   {
-    n: "01",
-    name: "The Monolith House",
-    location: "Grunewald, Berlin",
-    price: "€4.2M",
+    name: "Haus Am See",
+    location: "Wannsee, Berlin",
+    price: "€2,450,000",
     beds: "3 Bed",
     baths: "2 Bath",
     area: "240 m²",
     image: listing1,
   },
   {
-    n: "02",
-    name: "Glass Pavilion",
-    location: "Lake Zurich, Switzerland",
-    price: "€8.7M",
+    name: "The Pavillion",
+    location: "Nordsjælland, Denmark",
+    price: "€1,890,000",
     beds: "2 Bed",
     baths: "1 Bath",
     area: "110 m²",
     image: listing2,
   },
   {
-    n: "03",
     name: "Concrete Loft",
     location: "Södermalm, Stockholm",
-    price: "€3.1M",
+    price: "€3,120,000",
     beds: "4 Bed",
     baths: "3 Bath",
     area: "310 m²",
@@ -97,105 +93,58 @@ function useRevealOnScroll() {
   return rootRef;
 }
 
-const ArrowRight = ({ className = "w-5 h-5" }: { className?: string }) => (
-  <svg
-    className={className}
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M17 8l4 4m0 0l-4 4m4-4H3"
-    />
-  </svg>
-);
-
 function Index() {
   const rootRef = useRevealOnScroll();
 
   return (
     <div ref={rootRef} className="min-h-screen bg-background text-foreground font-body">
-      {/* Navigation */}
-      <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-24 py-6 bg-background/75 backdrop-blur-md border-b border-border">
+      {/* Nav */}
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 bg-background/80 backdrop-blur-md border-b border-border">
         <a href="#top" className="font-display text-2xl tracking-tighter uppercase">
           Verschluss
         </a>
-        <div className="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-[0.25em]">
-          <a href="#listings" className="hover:text-primary transition-colors">Holdings</a>
-          <a href="#services" className="hover:text-primary transition-colors">Standard</a>
+        <div className="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest">
+          <a href="#listings" className="hover:text-primary transition-colors">Listings</a>
+          <a href="#services" className="hover:text-primary transition-colors">Curated</a>
           <a href="#agents" className="hover:text-primary transition-colors">Advisory</a>
           <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
         </div>
         <a
           href="#contact"
-          className="hidden sm:inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.25em] hover:bg-primary transition-colors"
+          className="px-4 py-2 bg-foreground text-background text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-colors"
         >
-          Book Tour
+          Book Private Tour
         </a>
       </nav>
 
       {/* Hero */}
       <section
         id="top"
-        className="relative min-h-screen flex flex-col justify-end px-6 md:px-12 lg:px-24 pb-20 pt-32 overflow-hidden"
+        className="relative min-h-[90vh] flex flex-col justify-end px-6 md:px-10 pb-12 overflow-hidden"
       >
-        {/* Giant background wordmark */}
-        <div className="absolute top-0 right-0 opacity-[0.04] pointer-events-none select-none overflow-hidden">
-          <h2 className="font-display text-[40vw] leading-none uppercase translate-x-1/4">
-            VERSCHLUSS
-          </h2>
+        <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-[0.04] select-none pointer-events-none">
+          <span className="font-display text-[35vw] leading-none uppercase">MODERN</span>
         </div>
 
-        {/* Floating hero image — parallax-feeling */}
-        <div className="absolute right-6 md:right-12 lg:right-24 top-28 w-[36vw] max-w-[420px] aspect-[3/4] hidden md:block animate-shutter [animation-delay:300ms]">
-          <img
-            src={heroVilla}
-            alt="Brutalist concrete villa with floor-to-ceiling windows at dusk"
-            width={832}
-            height={1024}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground px-4 py-2 font-mono text-[10px] uppercase tracking-widest">
-            New Acquisition · Berlin
-          </div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl animate-reveal">
-          <div className="flex items-center gap-4 mb-8 group">
-            <div className="w-12 h-px bg-primary transition-all duration-500 group-hover:w-24" />
-            <span className="uppercase tracking-[0.25em] text-[11px] font-bold">
-              Est. 2024 — Architecture &amp; Real Estate
-            </span>
-          </div>
-
-          <h1 className="font-display text-7xl md:text-9xl lg:text-[11rem] leading-[0.85] uppercase tracking-tighter mb-12 text-balance">
-            Curated <span className="text-primary">Spaces</span>
-            <br />
-            for Modern Living
-          </h1>
-
-          <div className="grid md:grid-cols-2 gap-12 items-end max-w-5xl">
-            <p className="text-lg md:text-xl text-muted-foreground max-w-md font-light leading-relaxed text-pretty">
-              Verschluss connects visionary homeowners with architectural masterpieces that
-              redefine the boundaries of domestic space and light.
+        <div className="grid lg:grid-cols-12 gap-8 items-end">
+          <div className="lg:col-span-7 animate-reveal">
+            <h1 className="font-display text-7xl md:text-9xl leading-[0.85] uppercase mb-8 text-balance">
+              Quiet <br />
+              <span className="text-primary">Architectures.</span>
+            </h1>
+            <p className="max-w-[45ch] text-lg text-muted-foreground text-pretty">
+              A specialist agency facilitating the exchange of historically significant and
+              architecturally progressive residences in Northern Europe.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="#listings"
-                className="group inline-flex items-center gap-3 bg-foreground text-background pl-7 pr-3 py-3 rounded-full transition-all hover:bg-primary"
-              >
-                <span className="uppercase text-xs tracking-[0.25em] font-bold">
-                  View Portfolio
-                </span>
-                <span className="grid place-items-center w-10 h-10 rounded-full bg-background/15">
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                </span>
-              </a>
-            </div>
+          </div>
+          <div className="lg:col-span-5 animate-shutter [animation-delay:400ms]">
+            <img
+              src={heroVilla}
+              alt="Brutalist concrete villa with floor-to-ceiling windows at dusk"
+              width={832}
+              height={1024}
+              className="w-full aspect-[4/5] object-cover outline-1 -outline-offset-1 outline-black/5"
+            />
           </div>
         </div>
       </section>
@@ -217,57 +166,36 @@ function Index() {
         </div>
       </div>
 
-      {/* Featured Holdings */}
-      <section id="listings" className="px-6 md:px-12 lg:px-24 py-32 border-t border-border">
-        <div
-          className="flex flex-col md:flex-row justify-between items-baseline mb-24 gap-6"
-          data-reveal
-        >
-          <h2 className="font-display text-5xl md:text-7xl uppercase tracking-tighter">
-            Featured <br /> Holdings
-          </h2>
-          <p className="max-w-xs text-sm uppercase tracking-[0.25em] font-bold text-muted-foreground">
-            Exclusive listings in the heart of Berlin, Zurich, and Copenhagen.
-          </p>
+      {/* Featured listings */}
+      <section id="listings" className="px-6 md:px-10 py-24">
+        <div className="flex justify-between items-end mb-16" data-reveal>
+          <h2 className="font-display text-5xl md:text-6xl uppercase">The Edit</h2>
+          <span className="font-mono text-xs text-muted-foreground">Showing 03 of 12</span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-24 lg:gap-16">
-          {listings.slice(0, 2).map((l, idx) => (
+        <div className="grid md:grid-cols-3 gap-px bg-border border border-border">
+          {listings.map((l) => (
             <article
               key={l.name}
               data-reveal
-              className={`group relative ${idx === 1 ? "lg:mt-48" : ""}`}
+              className="bg-background p-6 group cursor-pointer transition-colors hover:bg-secondary/40"
             >
-              <div className="overflow-hidden bg-secondary aspect-[4/5] relative">
+              <div className="aspect-square mb-6 overflow-hidden">
                 <img
                   src={l.image}
                   alt={`${l.name} — ${l.location}`}
                   width={1024}
-                  height={1280}
+                  height={1024}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] scale-105 group-hover:scale-100"
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                 />
-                <div className="absolute top-8 left-8 z-10 text-background mix-blend-difference">
-                  <span className="font-display text-6xl opacity-60">{l.n}</span>
-                </div>
-                <a
-                  href="#contact"
-                  className="absolute bottom-0 right-0 bg-primary text-primary-foreground p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500"
-                  aria-label={`Enquire about ${l.name}`}
-                >
-                  <ArrowRight className="w-7 h-7" />
-                </a>
               </div>
-              <div className="mt-8 flex justify-between items-start">
-                <div>
-                  <h3 className="text-3xl font-light mb-2">{l.name}</h3>
-                  <p className="text-muted-foreground uppercase tracking-[0.25em] text-[11px] font-bold">
-                    {l.location}
-                  </p>
-                </div>
-                <span className="text-xl font-bold">{l.price}</span>
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="font-bold text-xl">{l.name}</h3>
+                <span className="font-mono text-sm text-primary">{l.price}</span>
               </div>
-              <div className="mt-4 flex gap-6 font-mono text-[10px] uppercase text-muted-foreground border-t border-border pt-4">
+              <p className="text-muted-foreground text-sm mb-6">{l.location}</p>
+              <div className="flex gap-4 font-mono text-[10px] uppercase border-t border-border pt-4">
                 <span>{l.beds}</span>
                 <span>{l.baths}</span>
                 <span>{l.area}</span>
@@ -275,60 +203,13 @@ function Index() {
             </article>
           ))}
         </div>
-
-        {/* third listing — full-width editorial card */}
-        <article
-          data-reveal
-          className="group relative mt-32 grid lg:grid-cols-12 gap-12 items-center"
-        >
-          <div className="lg:col-span-7 overflow-hidden bg-secondary aspect-[16/10] relative">
-            <img
-              src={listings[2].image}
-              alt={`${listings[2].name} — ${listings[2].location}`}
-              width={1600}
-              height={1000}
-              loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] scale-105 group-hover:scale-100"
-            />
-            <div className="absolute top-8 left-8 text-background mix-blend-difference">
-              <span className="font-display text-6xl opacity-60">{listings[2].n}</span>
-            </div>
-          </div>
-          <div className="lg:col-span-5 space-y-6">
-            <p className="text-muted-foreground uppercase tracking-[0.25em] text-[11px] font-bold">
-              {listings[2].location}
-            </p>
-            <h3 className="font-display text-5xl md:text-6xl uppercase tracking-tight">
-              {listings[2].name}
-            </h3>
-            <p className="text-muted-foreground max-w-md font-light leading-relaxed">
-              A 1954 industrial loft restored with surgical restraint — exposed concrete, oak,
-              and 4-meter ceilings above the rooftops of Södermalm.
-            </p>
-            <div className="flex items-center gap-6">
-              <span className="text-xl font-bold">{listings[2].price}</span>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.25em] group/btn"
-              >
-                Request Dossier
-                <span className="grid place-items-center w-10 h-10 rounded-full border border-border group-hover/btn:bg-primary group-hover/btn:text-primary-foreground group-hover/btn:border-primary transition-all">
-                  <ArrowRight className="w-4 h-4" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </article>
       </section>
 
       {/* Services + Agents */}
-      <section
-        id="services"
-        className="px-6 md:px-12 lg:px-24 py-32 bg-foreground text-background"
-      >
+      <section id="services" className="px-6 md:px-10 py-24 bg-foreground text-background">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <div data-reveal>
-            <h2 className="font-display text-5xl md:text-7xl uppercase tracking-tighter mb-12">
+            <h2 className="font-display text-5xl md:text-6xl uppercase mb-12">
               The Agency <br /> Standard.
             </h2>
             <div className="space-y-8">
@@ -354,10 +235,7 @@ function Index() {
                   d: "Long-term advisory for heritage properties, from restoration to resale.",
                 },
               ].map((s) => (
-                <div
-                  key={s.n}
-                  className="border-t border-background/20 pt-6 group hover:border-primary transition-colors"
-                >
+                <div key={s.n} className="border-t border-background/20 pt-6">
                   <span className="font-mono text-primary text-xs mb-2 block">{s.n}</span>
                   <h4 className="text-xl font-bold mb-2">{s.t}</h4>
                   <p className="text-background/60 text-sm">{s.d}</p>
@@ -366,7 +244,7 @@ function Index() {
             </div>
           </div>
 
-          <div id="agents" className="grid grid-cols-2 gap-6" data-reveal>
+          <div id="agents" className="grid grid-cols-2 gap-4" data-reveal>
             <div className="space-y-4">
               <div className="aspect-[4/5] overflow-hidden">
                 <img
@@ -375,7 +253,7 @@ function Index() {
                   width={544}
                   height={672}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-[1200ms] hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <p className="font-bold">Erik Sorenson</p>
@@ -383,7 +261,7 @@ function Index() {
                 Principal Partner
               </p>
             </div>
-            <div className="space-y-4 mt-16">
+            <div className="space-y-4 mt-12">
               <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src={agent2}
@@ -391,7 +269,7 @@ function Index() {
                   width={544}
                   height={672}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-[1200ms] hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <p className="font-bold">Lara Vinter</p>
@@ -404,7 +282,7 @@ function Index() {
       </section>
 
       {/* Testimonial */}
-      <section className="py-32 px-6 md:px-12 lg:px-24 text-center" data-reveal>
+      <section className="py-32 px-6 md:px-10 text-center" data-reveal>
         <div className="max-w-3xl mx-auto">
           <span className="font-mono text-xs text-primary mb-8 block uppercase tracking-[0.3em]">
             Endorsement
@@ -419,16 +297,8 @@ function Index() {
         </div>
       </section>
 
-      {/* Visual transition divider */}
-      <div className="h-32 flex items-center justify-center">
-        <div className="w-px h-24 bg-primary animate-pulse" />
-      </div>
-
       {/* Footer / Contact */}
-      <footer
-        id="contact"
-        className="bg-card border-t border-border pt-24 pb-12 px-6 md:px-12 lg:px-24"
-      >
+      <footer id="contact" className="bg-card border-t border-border pt-24 pb-12 px-6 md:px-10">
         <div className="grid lg:grid-cols-2 gap-12 mb-24" data-reveal>
           <div>
             <h2 className="font-display text-6xl md:text-8xl uppercase tracking-tighter mb-8 leading-none">
