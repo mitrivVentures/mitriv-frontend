@@ -26,7 +26,7 @@ const handleContactSubmit = async (
         body: JSON.stringify(contactData),
       }
     );
-
+console.log("Backend URL:", import.meta.env.VITE_BACKEND_URL);
     if (response.ok) {
       alert("Message Sent");
 
