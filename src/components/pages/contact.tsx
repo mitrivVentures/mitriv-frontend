@@ -17,7 +17,7 @@ const handleContactSubmit = async (
 
   try {
     const response = await fetch(
-      "${import.meta.env.VITE_BACKEND_URL}/api/contact",
+      `${import.meta.env.VITE_BACKEND_URL}/api/contact`,
       {
         method: "POST",
         headers: {
