@@ -191,7 +191,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   try {
     const response = await fetch(
-     "http://localhost:5000/api/enquiry",
+     `${import.meta.env.VITE_BACKEND_URL}/api/enquiry`,
       {
         method: "POST",
         headers: {
@@ -229,7 +229,7 @@ const handleServiceSubmit = async (
   e.preventDefault();
 
   const response = await fetch(
-    "http://localhost:5000/api/service-enquiry",
+    `${import.meta.env.VITE_BACKEND_URL}/api/service-enquiry`,
     {
       method: "POST",
       headers: {

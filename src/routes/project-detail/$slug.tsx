@@ -38,7 +38,7 @@ if (!project) {
 const handleBrochureDownload = async () => {
   try {
     await axios.post(
-      "http://localhost:5000/api/contact",
+      `${import.meta.env.VITE_BACKEND_URL}/api/contact`,
       {
         ...brochureData,
         project: project.name,
