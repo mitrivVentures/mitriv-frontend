@@ -83,7 +83,7 @@ const handleContactSubmit = async (
                     Email
                   </p>
                   <p className="text-2xl font-semibold">
-                    hello@verschluss.com
+                    hello@mitriv.in
                   </p>
                 </div>
 
