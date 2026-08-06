@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Navbar from "./Navbar";
 import { useState } from "react";
+import Footer from "./Footer";
 
 
 export default function ContactPage() {
@@ -249,7 +250,7 @@ onChange={(e) =>
 
           </div>
         </section>
-
+<Footer />
       </main>
     </>
   );
