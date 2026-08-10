@@ -15,6 +15,9 @@ import pro1list1 from "@/assets/pro1list1.png";
 import pro1list2 from "@/assets/pro1list2.png";
 import pro1list3 from "@/assets/pro1list3.png";
 import pro1list4 from "@/assets/pro1list4.png";
+import pro4list1 from "@/assets/pro4list1.png";
+import pro4list2 from "@/assets/pro4list2.png";
+import pro4list3 from "@/assets/pro4list3.png";
 import pro3list1 from "@/assets/pro3list1.png";
 import pro3list2 from "@/assets/pro3list2.png";
 import pro3list3 from "@/assets/pro3list3.png";
@@ -27,17 +30,17 @@ export const Route = createFileRoute("/")({
 
   head: () => ({
     meta: [
-      { title: "Verschluss — Architectural Real Estate Advisory" },
+      { title: "Mitriv Ventures | Buy, Sell & Rent Properties" },
       {
         name: "description",
         content:
-          "Curated residences with verified design pedigree. Private acquisitions, architectural vetting, and editorial-grade presentation across Northern Europe.",
+          "Buy, sell, and rent verified residential & commercial properties with Mitriv Ventures. Expert property consulting and loan assistance.",
       },
-      { property: "og:title", content: "Verschluss — Architectural Real Estate Advisory" },
+      { property: "og:title", content: "Mitriv Ventures | Buy, Sell & Rent Properties" },
       {
         property: "og:description",
         content:
-          "Quiet architectures. Curated residences. A specialist agency for the architecturally inclined.",
+          "Buy, sell, and rent verified residential & commercial properties with Mitriv Ventures. Expert property consulting and loan assistance.",
       },
     ],
   }),
@@ -135,14 +138,23 @@ const listings: Listing[] = [
     area: "970 sqft",
     images: [pro1list1, pro1list2, pro1list3, pro1list4],
   },
+  // {
+  //   name: "3 BHK Flat In Rashmi Crystal",
+  //   location: "Mira Road East, Mira Bhayandar, Mumbai, Maharashtra, INDIA",
+  //   price: "₹50,000",
+  //   beds: "3 Bedroom",
+  //   baths: "3 Bath",
+  //   area: "1700 sqft",
+  //   images: [pro3list1, pro3list2, pro3list3],
+  // },
   {
-    name: "3 BHK Flat In Rashmi Crystal",
-    location: "Mira Road East, Mira Bhayandar, Mumbai, Maharashtra, INDIA",
-    price: "₹50,000",
-    beds: "3 Bedroom",
-    baths: "3 Bath",
-    area: "1700 sqft",
-    images: [pro3list1, pro3list2, pro3list3],
+    name: "1 BHK Flat In Chembur",
+    location: "Navjeevan Society, Chembur, Navi Mumbai, Maharashtra, India",
+    price: "₹45,000",
+    beds: "1 Bedroom",
+    baths: "1 Bath",
+    area: "550 sqft",
+    images: [pro4list1, pro4list2, pro4list3],
   },
 ];
 
