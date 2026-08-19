@@ -355,7 +355,7 @@ function BlogDetail() {
         <div className="max-w-[1000px] mx-auto">
 
           {/* Article Header */}
-          <div className="
+          {/* <div className="
             flex
             items-center
             gap-6
@@ -392,7 +392,7 @@ function BlogDetail() {
                 Real Estate Insights
               </p>
             </div>
-          </div>
+          </div> */}
 
           {/* =====================================
               HTML CONTENT
