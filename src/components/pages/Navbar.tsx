@@ -249,6 +249,13 @@ export default function Navbar() {
         </a>
 
         <Link
+          to="/blog"
+          className="hover:text-primary transition-colors"
+        >
+          Blog
+        </Link>
+
+        <Link
           to="/contact"
           className="hover:text-primary transition-colors"
         >
