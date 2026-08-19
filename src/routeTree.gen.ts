@@ -14,7 +14,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectDetailSlugRouteImport } from './routes/project-detail/$slug'
-import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
