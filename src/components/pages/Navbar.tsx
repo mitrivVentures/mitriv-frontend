@@ -252,7 +252,7 @@ export default function Navbar() {
           to="/blog"
           className="hover:text-primary transition-colors"
         >
-          Blog
+          Blogs
         </Link>
 
         <Link
