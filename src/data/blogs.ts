@@ -612,4 +612,5 @@ export const blogs = [
       </p>
     `,
   },
+  
 ];
