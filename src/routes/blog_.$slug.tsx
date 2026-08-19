@@ -433,7 +433,8 @@ function BlogDetail() {
               [&>ul]:space-y-4
               [&>ul]:text-lg
               [&>ul]:text-black/60
-              [&>ul]:list-none
+              [&>ul]:list-disc
+              [&>ul]:pl-6
 
               [&>ol]:my-10
               [&>ol]:space-y-4
