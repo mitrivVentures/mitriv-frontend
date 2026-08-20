@@ -543,7 +543,7 @@ export const blogs = [
 
       <p>Before purchasing a property, use this quick checklist:</p>
 
-      <ul>
+      <ul type="checklist">
         <li>Sale Deed</li>
         <li>Title Deed and ownership chain</li>
         <li>Encumbrance Certificate</li>

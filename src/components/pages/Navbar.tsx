@@ -330,7 +330,13 @@ export default function Navbar() {
             >
               About
             </a>
-
+            <a
+              href="/blog"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-primary"
+            >
+              Blogs
+            </a>
             <Link
               to="/contact"
               onClick={() => setMenuOpen(false)}
